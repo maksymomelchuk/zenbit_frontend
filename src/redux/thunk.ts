@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { postDataApi } from '../services/api'
+import { getDataApi, postDataApi } from '../services/api'
 import { IFeedback } from './slice'
 
 export const postData = createAsyncThunk(
@@ -7,6 +7,17 @@ export const postData = createAsyncThunk(
   async (feedback: IFeedback, thunkAPI) => {
     try {
       const data = await postDataApi(feedback)
+      return data
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+export const getData = createAsyncThunk(
+  'feedbacks/getData',
+  async (_, thunkAPI) => {
+    try {
+      const data = await getDataApi()
       return data
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message)

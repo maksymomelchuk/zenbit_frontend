@@ -5,7 +5,12 @@ import {
   FaTwitter,
   FaFacebookF,
 } from 'react-icons/fa'
-import { StyledList, StyledFooter } from './Footer.styled'
+import {
+  StyledList,
+  StyledFooter,
+  StyledGreen,
+  StyledYellow,
+} from './Footer.styled'
 
 const Footer: React.FC = () => {
   return (
@@ -48,6 +53,8 @@ const Footer: React.FC = () => {
           </a>
         </li>
       </StyledList>
+      <StyledGreen />
+      <StyledYellow />
     </StyledFooter>
   )
 }

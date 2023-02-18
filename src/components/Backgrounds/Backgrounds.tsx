@@ -1,11 +1,26 @@
 import React from 'react'
-import { StyledDiv, StyledLightYellowCircle } from './Backgrounds.styled'
+import {
+  StyledBgTopLeft,
+  StyledLightYellowCircle,
+  StyledLightYellowCircleBig,
+  StyledPinkTop,
+  StyledPinkBottom,
+  StyledShadowLeft,
+  StyledShadowMiddle,
+  StyledShadowRight,
+} from './Backgrounds.styled'
 
 const Backgrounds: React.FC = () => {
   return (
     <>
-      <StyledDiv />
+      <StyledBgTopLeft />
       <StyledLightYellowCircle />
+      <StyledPinkTop />
+      <StyledLightYellowCircleBig />
+      <StyledPinkBottom />
+      <StyledShadowLeft />
+      <StyledShadowMiddle />
+      <StyledShadowRight />
     </>
   )
 }

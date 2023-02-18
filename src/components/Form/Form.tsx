@@ -7,28 +7,28 @@ import {
   StyledTextInput,
 } from './Form.styled'
 import { postData } from '../../redux/thunk'
-import { useDispatch } from 'react-redux'
-import { postDataApi } from '../../services/api'
+import { useAppDispatch } from '../../redux/store'
 
 const Form: React.FC = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const handleSubmit = (event: any): void => {
     event.preventDefault()
     const { name, email, text } = event.target
-    ;(async () => {
-      const data = await postDataApi({
+    dispatch(
+      postData({
         name: name.value,
         email: email.value,
         text: text.value,
       })
-      console.log('data', data)
-    })()
+    )
   }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledLabel>Reach out to us!</StyledLabel>
+      <StyledLabel className="animate__animated animate__slideInLeft animate__delay-1s">
+        Reach out to us!
+      </StyledLabel>
       <StyledInput name="name" type="text" placeholder="Your name*" required />
       <StyledInput
         name="email"

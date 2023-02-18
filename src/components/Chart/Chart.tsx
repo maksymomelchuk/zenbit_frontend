@@ -4,13 +4,16 @@ import chart from '../../assets/chart.png'
 
 const StyledImg = styled.img`
   margin-bottom: 5px;
-  align-self: flex-end;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
 
-  @media screen and (min-width: 1000px) {
-    transform: scale(0.7);
+  @media screen and (min-width: 992px) {
+    width: 500px;
   }
-  @media screen and (min-width: 1440px) {
-    transform: scale(1);
+  @media screen and (min-width: 1200px) {
+    width: 100%;
   }
 `
 

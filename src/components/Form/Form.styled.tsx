@@ -7,10 +7,20 @@ export const StyledForm = styled.form`
   width: 100%;
 
   gap: 8px;
-  padding: 155px 104px 174px 147px;
+  padding: 50px 30px;
+
+  @media screen and (min-width: 768px) {
+    padding: 155px 147px;
+  }
+  @media screen and (min-width: 992px) {
+    padding: 100px 30px 100px 30px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 179px 104px 174px 147px;
+  }
 `
 export const StyledButton = styled.button`
-  align-self: flex-start;
+  align-self: center;
 
   padding: 27px 52px;
   margin-top: 15px;
@@ -24,6 +34,18 @@ export const StyledButton = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 500px;
+
+  @media screen and (min-width: 768px) {
+    align-self: flex-start;
+  }
+
+  transition: all 250ms linear;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    color: #5f83aa;
+  }
 `
 export const StyledLabel = styled.label`
   font-size: 40px;

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { postData } from './thunk'
+import { createSlice } from '@reduxjs/toolkit'
+import { postData, getData } from './thunk'
 
 export interface IFeedback {
   name: string
@@ -9,15 +9,13 @@ export interface IFeedback {
 
 interface IInitialState {
   feedbacks: IFeedback[]
-  searchValue: string
-  isSending: boolean
+  isLoading: boolean
   error: null | string
 }
 
 const initialState: IInitialState = {
   feedbacks: [],
-  searchValue: '',
-  isSending: false,
+  isLoading: false,
   error: null,
 }
 
@@ -27,16 +25,28 @@ const feedbacksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // POST DATA
       .addCase(postData.pending, (state) => {
-        state.isSending = true
+        state.isLoading = true
       })
       .addCase(postData.fulfilled, (state, action) => {
-        state.isSending = false
+        state.isLoading = false
         state.feedbacks.push(action.payload)
+        console.log(action.payload)
       })
-      .addCase(postData.rejected, (state, action) => {
-        state.isSending = false
-        // state.error = action.payload
+      .addCase(postData.rejected, (state) => {
+        state.isLoading = false
+      })
+      // GET DATA
+      .addCase(getData.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getData.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.feedbacks = action.payload
+      })
+      .addCase(getData.rejected, (state) => {
+        state.isLoading = false
       })
   },
 })
