@@ -5,9 +5,9 @@ import chart from '../../assets/chart.png'
 const StyledImg = styled.img`
   margin-bottom: 5px;
   width: 90%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
-  height: auto;
 
   @media screen and (min-width: 992px) {
     width: 500px;
